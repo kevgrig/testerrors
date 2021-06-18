@@ -5,7 +5,7 @@ function Padding(props) {
   return <View style={{ padding: 10 }}>{props.children}</View>;
 }
 
-export default function App() {
+export default class App extends React.Component {
   onClickNoCatchSync = () => {
     console.log(new URL("https://example.com/").hostname);
   }
@@ -72,15 +72,17 @@ export default function App() {
     return result;
   }
 
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Hello World</Text>
-      <Padding><Button onPress={this.onClickNoCatchSync} title="onClick no-catch sync" /></Padding>
-      <Padding><Button onPress={this.onClickNoCatchAsync} title="onClick no-catch async" /></Padding>
-      <Padding><Button onPress={this.onClickCatchSyncConsoleLog} title="onClick catch sync console log" /></Padding>
-      <Padding><Button onPress={this.onClickCatchAsyncConsoleLog} title="onClick catch async console log" /></Padding>
-      <Padding><Button onPress={this.onClickCatchSyncCustomLog} title="onClick catch sync custom log" /></Padding>
-      <Padding><Button onPress={this.onClickCatchAsyncCustomLog} title="onClick catch async custom log" /></Padding>
-    </View>
-  );
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <Text>Hello World</Text>
+        <Padding><Button onPress={this.onClickNoCatchSync} title="onClick no-catch sync" /></Padding>
+        <Padding><Button onPress={this.onClickNoCatchAsync} title="onClick no-catch async" /></Padding>
+        <Padding><Button onPress={this.onClickCatchSyncConsoleLog} title="onClick catch sync console log" /></Padding>
+        <Padding><Button onPress={this.onClickCatchAsyncConsoleLog} title="onClick catch async console log" /></Padding>
+        <Padding><Button onPress={this.onClickCatchSyncCustomLog} title="onClick catch sync custom log" /></Padding>
+        <Padding><Button onPress={this.onClickCatchAsyncCustomLog} title="onClick catch async custom log" /></Padding>
+      </View>
+    );
+  }
 }
